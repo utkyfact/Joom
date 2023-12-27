@@ -71,7 +71,7 @@ function ekranaYazdir(){
                 </div>
                 <div class="d-flex flex-column align-items-center gap-3 mb-3">
                     <h4>Sepetin boş</h3>
-                    <button class="btn btn-danger p-2 px-3">Ürünleri gör</button>
+                    <button onclick="gönder()" class="btn btn-danger p-2 px-3">Ürünleri gör</button>
                 </div>
             </div>
         </div>
@@ -216,4 +216,9 @@ function login(){
         p.classList.add("text-danger","p-2")
         wrapModal.append(p)
     }
+}
+
+// Boş sepetten anasayfaya göndermek için bir fonksiyon
+function gönder() {
+    window.location.href = "index.html"
 }
