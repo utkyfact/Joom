@@ -84,7 +84,7 @@ function ekranaYazdir(){
     
     butonlarArttir.forEach(btn => {
         btn.addEventListener("click",function(){
-            arttir(this)
+            arttir(this,this.parentElement.children[0])
         })
     })
 
@@ -103,14 +103,16 @@ function ekranaYazdir(){
 ekranaYazdir()
 
 // SEPET ÜRÜNLERİNİ ARTTIRMA
-function arttir(btn){
+function arttir(btn,btn2){
     let items = JSON.parse(localStorage.getItem("sepet"))
     let fiyat = btn.parentElement.parentElement.parentElement.children[2].children[1].children[0].textContent
     let adet = btn.parentElement.children[1].textContent
     let birimFiyat = fiyat / adet
     let secilenUrun = items.find(item => item.price == fiyat)
     adet++
-    
+    if(adet != 1){
+        btn2.disabled = false
+    }
     secilenUrun.price = adet * birimFiyat
     secilenUrun.adet = adet
     fiyat = secilenUrun.price
